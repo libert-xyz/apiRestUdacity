@@ -12,7 +12,9 @@ secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits) for x
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
-    username = Column(String(32), index=True)
+    username = Column(String(32))
+    picture = Column(String)
+    email = Column(String,index=True)
     password_hash = Column(String(64))
 
     def hash_password(self,password):
